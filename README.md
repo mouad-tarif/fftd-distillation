@@ -80,5 +80,6 @@ Acknowledgment: Inspired by the concept of TAID (Sakana AI), but evolved into a 
 Each model has its own unique "nature" shaped by its creators (e.g., Qwen, Llama, Mistral). Behaviors like "rebellion" or "loss spikes" may appear depending on the model family. 
 
 **Results are empirical.** We cannot judge a model in advance; the only true test is the actual result. You may need to tune `alpha`, `beta`, and `lr` based on the specific nature of your chosen models.
+
 **⚠️ IMPORTANT:** The Friend and Teacher models MUST share the same architecture and tokenizer (e.g., both from the same model family). Mixing different families will cause a mismatch and crash the code. It is your responsibility to ensure compatibility.
 
