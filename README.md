@@ -2,11 +2,13 @@
 
 ## 🌟 Introduction
 Traditional knowledge distillation relies on a strict Teacher-Student paradigm, where a smaller model blindly mimics a larger one. We introduce **FFTD (Friend and Friend Teacher Distillation)**, a novel approach where the student learns from two sources simultaneously: a peer (Friend) and the peer's teacher (Friend's Teacher).
+---
 
 ## 🧠 The Concept
 Imagine you are a student. Instead of only listening to a strict professor, you study with a **smart classmate (Friend)** to understand the basics, and then you consult **your classmate's teacher** to gain deep insights. 
 By combining both, you build a stronger, independent understanding without blindly copying the teacher.
 
+---
 ## 📐 The Mathematical Function
 Our approach is governed by a custom loss function that balances learning with independence:
 
@@ -15,7 +17,7 @@ Our approach is governed by a custom loss function that balances learning with i
 *   **α · KL (Friend):** Learns the language and style from the peer.
 *   **(1-α) · KL (Teacher):** Absorbs deep knowledge from the expert.
 *   **- β · Sim (Independence):** A negative similarity penalty that prevents the student from becoming a blind copy, forcing it to develop a unique identity.
-
+---
 ## 🏗️ Architectural Integrity
 A key feature of FFTD is that it preserves the **exact architecture** of the base model. In our Proof of Concept (PoC), we instantiated a completely new model using `AutoModelForCausalLM.from_config(config)`. 
 **We did NOT load the original pre-trained weights.** The model's weights were initialized from scratch and trained exclusively using FFTD's distilled knowledge. This proves that FFTD can create a fully functional, structurally identical model without violating copyrights or stealing weights.
@@ -36,7 +38,7 @@ However, the architecture is **highly flexible**. You are not locked into `int4`
 *(This is a screenshot from VS Code showing the successful extraction of logits using `float16` after loading the models in `int4` on a CPU).*
 
 ![FFTD Proof of Concept](assets/Screenshot-From-2026-10-28--02.png)
-
+---
 ## 🚀 Usage
 1. Install requirements:
    ```bash
@@ -52,6 +54,7 @@ export FFTD_TEACHER_MODEL="AnotherOrg/Model-B"
 export FFTD_DATASET="datasets/sample.txt"
 python newmethod.py
 ```
+---
 ## ⚠️ CRITICAL LEGAL AND ETHICAL WARNING
 READ THIS BEFORE USING THIS CODE.
 
@@ -65,6 +68,15 @@ It is STRICTLY PROHIBITED to use FFTD to build offensive, malicious, or harmful 
 
 3. LIMITATION OF LIABILITY
 The author (Mouad Tarif) holds NO LIABILITY for any misuse, copyright infringement, or illegal activities committed by users employing this code. You (the User) are solely responsible for your actions.
+---
 
 Author: Mouad Tarif
 Acknowledgment: Inspired by the concept of TAID (Sakana AI), but evolved into a completely different mathematical and structural approach.
+---
+
+### ⚠️ Model-Specific Behavior (Note)
+
+**FFTD is not a one-size-fits-all solution.** 
+Each model has its own unique "nature" shaped by its creators (e.g., Qwen, Llama, Mistral). Behaviors like "rebellion" or "loss spikes" may appear depending on the model family. 
+
+**Results are empirical.** We cannot judge a model in advance; the only true test is the actual result. You may need to tune `alpha`, `beta`, and `lr` based on the specific nature of your chosen models.
