@@ -31,7 +31,7 @@ However, the architecture is **highly flexible**. You are not locked into `int4`
 **Proof of Concept Screenshot:**
 *(This is a screenshot from VS Code showing the successful extraction of logits using `float16` after loading the models in `int4` on a CPU).*
 
-![FFTD Proof of Concept](assets/Screenshot-From-2026-10-28--02-03-35.png)
+![FFTD Proof of Concept](assets/Screenshot-From-2026-10-28--02.png)
 
 ## 🚀 Usage
 1. Install requirements:
