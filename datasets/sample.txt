@@ -1,0 +1,4 @@
+Artificial Intelligence is transforming the world.
+Machine learning models require large datasets.
+FFTD is a novel approach to knowledge distillation.
+This model was trained using a friend and a teacher.
