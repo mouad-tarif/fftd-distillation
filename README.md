@@ -30,21 +30,21 @@ However, the architecture is **highly flexible**. You are not locked into `int4`
 
 **Proof of Concept Screenshot:**
 *(This is a screenshot from VS Code showing the successful extraction of logits using `float16` after loading the models in `int4` on a CPU).*
-![FFTD Proof of Concept] (/Screenshot-From-2026-10-28--02-03-35.png)
+![FFTD Proof of Concept] (Screenshot-From-2026-10-28--02-03-35.png)
 
 ## 🚀 Usage
 1. Install requirements:
    ```bash
    pip install torch transformers safetensors bitsandbytes accelerate```
-2. Run the FFTD pipeline (defaults to Qwen 0.5B as Friend and Qwen 1.5B as Teacher):
+2. Run the FFTD pipeline :
    ```bash
    python newmethod.py```
 3. Custom Models / Dataset:
 You can override the default models and dataset using environment variables:
 ```bash
-export FFTD_FRIEND_MODEL="Qwen/Qwen2.5-0.5B-Instruct"
-export FFTD_TEACHER_MODEL="Qwen/Qwen2.5-1.5B-Instruct"
-export FFTD_DATASET="datasets/sample.jsonl"
+export FFTD_FRIEND_MODEL="AnotherOrg/Model-A"
+export FFTD_TEACHER_MODEL="AnotherOrg/Model-B"
+export FFTD_DATASET="datasets/sample.txt"
 python newmethod.py
 ```
 ## ⚠️ CRITICAL LEGAL AND ETHICAL WARNING
