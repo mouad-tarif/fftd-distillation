@@ -27,7 +27,11 @@ However, the architecture is **highly flexible**. You are not locked into `int4`
 *   **For High-End GPUs (CUDA):** The script automatically detects CUDA and uses `float16` (FP16) for maximum speed and stability.
 *   **For CPUs (Low RAM):** The script falls back to `int4` via `bitsandbytes` or `float32` depending on your setup.
 *   **Manual Control:** You can modify the `torch_dtype` and `BitsAndBytesConfig` inside the code to use `bfloat16`, `float32`, or any quantization level you prefer.
-
+*   **Learning Rate (LR) Flexibility:** 
+    The training speed and depth are controlled via the `optimizer` learning rate. You can adjust the `lr` parameter in the code based on your needs:
+    *   **Fast / Light :** Use a higher LR (e.g., `5e-5` or `1e-4`) for a quick Proof of Concept.
+    *   **Medium / Balanced :** Use a moderate LR (e.g., `2e-5`) for stable training.
+    *   **Heavy / Deep :** Use a lower LR (e.g., `1e-5` or `5e-6`) for deep convergence and higher quality (requires more time/epochs).
 **Proof of Concept Screenshot:**
 *(This is a screenshot from VS Code showing the successful extraction of logits using `float16` after loading the models in `int4` on a CPU).*
 
